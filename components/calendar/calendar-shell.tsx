@@ -50,7 +50,7 @@ export function CalendarShell({ currentDate, onDateChange }: CalendarShellProps)
 
   return (
     <div className="flex h-screen w-full flex-col bg-white text-[#1d1d1f] md:flex-row overflow-hidden font-sans">
-      <div className="flex flex-[2] flex-col min-w-0 bg-white border-r border-gray-200">
+      <div className="flex flex-[2] flex-col min-w-0 bg-white border-gray-200">
         <header className="hidden md:flex items-center justify-between px-4 py-3 border-b h-[52px]">
           <div className="flex items-center gap-4">
             <h1 className="text-xl font-semibold min-w-[140px]">{headerDate}</h1>

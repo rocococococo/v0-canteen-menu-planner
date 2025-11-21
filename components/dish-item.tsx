@@ -58,6 +58,7 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
           <div className="col-span-7 flex items-center gap-2">
             <Label className="shrink-0 text-muted-foreground text-xs w-8 text-right">菜品</Label>
             <Input
+              autoFocus
               value={name}
               onChange={(e) => onUpdate({ name: e.target.value })}
               placeholder="请输入菜品名称"
@@ -103,6 +104,7 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
                   <div className="flex-1 flex items-center gap-2">
                     <Label className="shrink-0 text-muted-foreground text-xs w-8 text-right">原料</Label>
                     <Input
+                      autoFocus
                       placeholder="原料名称"
                       value={ing.name}
                       onChange={(e) => updateIngredient(idx, "name", e.target.value)}
@@ -138,7 +140,7 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
                       value={COMMON_UNITS.includes(ing.unit) ? ing.unit : "CUSTOM"}
                       onValueChange={(val) => updateIngredient(idx, "unit", val === "CUSTOM" ? "自定义" : val)}
                     >
-                      <SelectTrigger className="h-8 text-sm bg-background">
+                      <SelectTrigger size="sm" className="h-8 py-1 text-sm bg-background">
                         <SelectValue placeholder="单位" />
                       </SelectTrigger>
                       <SelectContent>

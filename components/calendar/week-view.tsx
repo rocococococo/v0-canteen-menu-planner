@@ -4,6 +4,7 @@ import { zhCN } from "date-fns/locale"
 import { cn } from "@/lib/utils"
 import { useMenuStore } from "@/lib/store"
 import { CANTEENS, MEAL_TYPES } from "@/types/menu"
+import { getLunarDateInfo } from "@/lib/lunar"
 import React from "react"
 
 interface WeekViewProps {
@@ -27,12 +28,13 @@ export function WeekView({ currentDate, onDateSelect }: WeekViewProps) {
         {days.map((day) => {
           const isSelected = isSameDay(day, currentDate)
           const isDayToday = isToday(day)
+          const lunarInfo = getLunarDateInfo(day)
           return (
             <div
               key={day.toString()}
               onClick={() => onDateSelect(day)}
               className={cn(
-                "py-3 text-center border-r last:border-r-0 cursor-pointer hover:bg-muted/10 transition-colors",
+                "py-3 text-center border-r last:border-r-0 cursor-pointer hover:bg-muted/20 transition-colors",
                 isSelected && "bg-accent/5",
               )}
             >
@@ -45,6 +47,16 @@ export function WeekView({ currentDate, onDateSelect }: WeekViewProps) {
                 )}
               >
                 {format(day, "d")}
+              </div>
+              <div
+                className={cn(
+                  "text-[10px] mt-1",
+                  lunarInfo.isHoliday || lunarInfo.term || lunarInfo.festival
+                    ? "text-red-500 font-medium"
+                    : "text-muted-foreground/70",
+                )}
+              >
+                {lunarInfo.displayText}
               </div>
             </div>
           )
@@ -77,7 +89,7 @@ function WeekDayColumn({
     <div
       onClick={() => onDateSelect(day)}
       className={cn(
-        "h-full p-2 space-y-2 hover:bg-muted/5 transition-colors cursor-pointer",
+        "h-full p-2 space-y-2 hover:bg-muted/20 transition-colors cursor-pointer",
         isSelected && "bg-accent/5",
       )}
     >

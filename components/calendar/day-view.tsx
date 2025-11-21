@@ -5,6 +5,8 @@ import { useMenuStore } from "@/lib/store"
 import { CANTEENS, MEAL_TYPES } from "@/types/menu"
 import { Badge } from "@/components/ui/badge"
 import { ChefHat } from "lucide-react"
+import { getLunarDateInfo } from "@/lib/lunar"
+import { cn } from "@/lib/utils"
 import React from "react"
 
 interface DayViewProps {
@@ -13,6 +15,7 @@ interface DayViewProps {
 
 export function DayView({ currentDate }: DayViewProps) {
   const dateKey = format(currentDate, "yyyy-MM-dd")
+  const lunarInfo = getLunarDateInfo(currentDate)
 
   const allSessions = useMenuStore((state) => state.sessions)
   const sessions = React.useMemo(() => allSessions.filter((s) => s.date === dateKey), [allSessions, dateKey])
@@ -23,6 +26,16 @@ export function DayView({ currentDate }: DayViewProps) {
         <div className="text-center mb-8">
           <h2 className="text-2xl font-semibold">{format(currentDate, "yyyy年MM月dd日", { locale: zhCN })}</h2>
           <p className="text-muted-foreground">{format(currentDate, "EEEE", { locale: zhCN })}</p>
+          <p
+            className={cn(
+              "text-sm mt-1",
+              lunarInfo.isHoliday || lunarInfo.term || lunarInfo.festival
+                ? "text-red-500 font-medium"
+                : "text-muted-foreground",
+            )}
+          >
+            {lunarInfo.displayText}
+          </p>
         </div>
 
         {sessions.length === 0 ? (

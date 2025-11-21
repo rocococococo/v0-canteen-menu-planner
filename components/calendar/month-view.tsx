@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 import { useMenuStore } from "@/lib/store"
 import React from "react"
 import { CANTEENS, MEAL_TYPES } from "@/types/menu"
+import { getLunarDateInfo } from "@/lib/lunar"
 
 interface MonthViewProps {
   currentDate: Date
@@ -45,7 +46,7 @@ export function MonthView({ currentDate, onDateSelect }: MonthViewProps) {
       </div>
 
       {/* Calendar Grid */}
-      <div className="flex-1 grid grid-cols-7 grid-rows-6">
+      <div className="flex-1 grid grid-cols-7 grid-rows-6 [&>div:nth-child(7n)]:border-r-0">
         {days.map((day) => {
           return <DayCell key={day.toString()} day={day} currentDate={currentDate} onDateSelect={onDateSelect} />
         })}
@@ -53,7 +54,6 @@ export function MonthView({ currentDate, onDateSelect }: MonthViewProps) {
     </div>
   )
 }
-
 function DayCell({
   day,
   currentDate,
@@ -64,6 +64,7 @@ function DayCell({
   const isDayToday = isToday(day)
 
   const dateKey = format(day, "yyyy-MM-dd")
+  const lunarInfo = getLunarDateInfo(day)
 
   const allSessions = useMenuStore((state) => state.sessions)
   const sessions = React.useMemo(() => allSessions.filter((s) => s.date === dateKey), [allSessions, dateKey])
@@ -77,7 +78,7 @@ function DayCell({
         isSelected && "bg-accent/10",
       )}
     >
-      <div className="flex justify-center mb-1">
+      <div className="flex flex-col items-center mb-1">
         <span
           className={cn(
             "flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium",
@@ -86,6 +87,16 @@ function DayCell({
           )}
         >
           {format(day, "d")}
+        </span>
+        <span
+          className={cn(
+            "text-[10px] mt-0.5 scale-90 origin-top",
+            lunarInfo.isHoliday || lunarInfo.term || lunarInfo.festival
+              ? "text-red-500 font-medium"
+              : "text-muted-foreground/70",
+          )}
+        >
+          {lunarInfo.displayText}
         </span>
       </div>
 

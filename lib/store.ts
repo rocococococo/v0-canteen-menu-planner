@@ -5,6 +5,7 @@ interface MenuState {
   sessions: MenuSession[]
   addSession: (session: MenuSession) => void
   updateSession: (sessionId: string, updates: Partial<MenuSession>) => void
+  removeSession: (sessionId: string) => void
   addDish: (sessionId: string, dish: Dish) => void
   updateDish: (sessionId: string, dishId: string, updates: Partial<Dish>) => void
   removeDish: (sessionId: string, dishId: string) => void
@@ -20,6 +21,10 @@ export const useMenuStore = create<MenuState>((set, get) => ({
     set((state) => ({
       sessions: state.sessions.map((s) => (s.id === id ? { ...s, ...updates } : s)),
     })),
+  removeSession: (id) =>
+    set((state) => ({
+      sessions: state.sessions.filter((s) => s.id !== id),
+    })),
   addDish: (sessionId, dish) =>
     set((state) => ({
       sessions: state.sessions.map((s) => (s.id === sessionId ? { ...s, dishes: [...s.dishes, dish] } : s)),
@@ -29,9 +34,9 @@ export const useMenuStore = create<MenuState>((set, get) => ({
       sessions: state.sessions.map((s) =>
         s.id === sessionId
           ? {
-              ...s,
-              dishes: s.dishes.map((d) => (d.id === dishId ? { ...d, ...updates } : d)),
-            }
+            ...s,
+            dishes: s.dishes.map((d) => (d.id === dishId ? { ...d, ...updates } : d)),
+          }
           : s,
       ),
     })),
@@ -40,9 +45,9 @@ export const useMenuStore = create<MenuState>((set, get) => ({
       sessions: state.sessions.map((s) =>
         s.id === sessionId
           ? {
-              ...s,
-              dishes: s.dishes.filter((d) => d.id !== dishId),
-            }
+            ...s,
+            dishes: s.dishes.filter((d) => d.id !== dishId),
+          }
           : s,
       ),
     })),

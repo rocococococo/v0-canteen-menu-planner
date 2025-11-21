@@ -1,5 +1,6 @@
 "use client"
 import { cn } from "@/lib/utils"
+import { getLunarDateInfo } from "@/lib/lunar"
 
 interface YearViewProps {
   currentDate: Date
@@ -37,15 +38,28 @@ export function YearView({ currentDate, onSelectMonth }: YearViewProps) {
                   date.getMonth() === today.getMonth() &&
                   date.getFullYear() === today.getFullYear()
 
+                const lunarInfo = getLunarDateInfo(date)
+
                 return (
-                  <div
-                    key={i}
-                    className={cn(
-                      "aspect-square flex items-center justify-center rounded-full font-medium",
-                      isToday ? "bg-red-500 text-white" : "text-gray-900",
-                    )}
-                  >
-                    {date.getDate()}
+                  <div key={i} className="flex flex-col items-center gap-0.5">
+                    <div
+                      className={cn(
+                        "aspect-square flex items-center justify-center rounded-full font-medium transition-colors cursor-pointer min-w-[20px]",
+                        isToday ? "bg-red-500 text-white" : "text-gray-900 hover:bg-gray-200",
+                      )}
+                    >
+                      {date.getDate()}
+                    </div>
+                    <div
+                      className={cn(
+                        "text-[8px] leading-none scale-90",
+                        lunarInfo.isHoliday || lunarInfo.term || lunarInfo.festival
+                          ? "text-red-500 font-medium"
+                          : "text-gray-400",
+                      )}
+                    >
+                      {lunarInfo.displayText.length > 3 ? lunarInfo.displayText.substring(0, 3) : lunarInfo.displayText}
+                    </div>
                   </div>
                 )
               })}
