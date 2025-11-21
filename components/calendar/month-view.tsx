@@ -1,0 +1,115 @@
+"use client"
+import {
+  startOfMonth,
+  endOfMonth,
+  eachDayOfInterval,
+  format,
+  isSameMonth,
+  isSameDay,
+  isToday,
+  startOfWeek,
+  endOfWeek,
+} from "date-fns"
+import { cn } from "@/lib/utils"
+import { useMenuStore } from "@/lib/store"
+import React from "react"
+import { CANTEENS, MEAL_TYPES } from "@/types/menu"
+
+interface MonthViewProps {
+  currentDate: Date
+  onDateSelect: (date: Date) => void
+}
+
+export function MonthView({ currentDate, onDateSelect }: MonthViewProps) {
+  const monthStart = startOfMonth(currentDate)
+  const monthEnd = endOfMonth(monthStart)
+  const startDate = startOfWeek(monthStart, { weekStartsOn: 1 })
+  const endDate = endOfWeek(monthEnd, { weekStartsOn: 1 })
+
+  const days = eachDayOfInterval({
+    start: startDate,
+    end: endDate,
+  })
+
+  const weekDays = ["一", "二", "三", "四", "五", "六", "日"]
+
+  return (
+    <div className="flex flex-col h-full bg-background">
+      {/* Weekday Header */}
+      <div className="grid grid-cols-7 border-b">
+        {weekDays.map((day) => (
+          <div key={day} className="py-2 text-center text-xs font-medium text-muted-foreground">
+            周{day}
+          </div>
+        ))}
+      </div>
+
+      {/* Calendar Grid */}
+      <div className="flex-1 grid grid-cols-7 grid-rows-6">
+        {days.map((day) => {
+          return <DayCell key={day.toString()} day={day} currentDate={currentDate} onDateSelect={onDateSelect} />
+        })}
+      </div>
+    </div>
+  )
+}
+
+function DayCell({
+  day,
+  currentDate,
+  onDateSelect,
+}: { day: Date; currentDate: Date; onDateSelect: (d: Date) => void }) {
+  const isSelected = isSameDay(day, currentDate)
+  const isCurrentMonth = isSameMonth(day, currentDate)
+  const isDayToday = isToday(day)
+
+  const dateKey = format(day, "yyyy-MM-dd")
+
+  const allSessions = useMenuStore((state) => state.sessions)
+  const sessions = React.useMemo(() => allSessions.filter((s) => s.date === dateKey), [allSessions, dateKey])
+
+  return (
+    <div
+      onClick={() => onDateSelect(day)}
+      className={cn(
+        "relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-muted/20 flex flex-col min-h-[80px]",
+        !isCurrentMonth && "bg-muted/5 text-muted-foreground/50",
+        isSelected && "bg-accent/10",
+      )}
+    >
+      <div className="flex justify-center mb-1">
+        <span
+          className={cn(
+            "flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium",
+            isDayToday && "bg-red-500 text-white",
+            isSelected && !isDayToday && "bg-primary text-primary-foreground",
+          )}
+        >
+          {format(day, "d")}
+        </span>
+      </div>
+
+      {/* Content Summary */}
+      <div className="flex-1 flex flex-col gap-1 overflow-hidden mt-1">
+        {sessions.map((session) => {
+          const canteen = CANTEENS.find((c) => c.id === session.canteenId)
+          const meal = MEAL_TYPES.find((m) => m.id === session.mealId)
+
+          return (
+            <div key={session.id} className="flex items-center gap-1 px-1 text-[10px] leading-tight truncate">
+              <div
+                className={cn(
+                  "w-1.5 h-1.5 rounded-full flex-shrink-0",
+                  session.status === "submitted" ? "bg-blue-500" : "bg-red-500",
+                )}
+              />
+              <span className="text-muted-foreground truncate">
+                {canteen?.name} {meal?.name} {session.dishes.length}道菜
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
