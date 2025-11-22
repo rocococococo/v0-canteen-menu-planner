@@ -1,1500 +1,425 @@
-[00:00:00.509] Server  WARN     ⚠ Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: 5.0.2
-[00:00:00.571] Server  LOG      ✓ Ready in 395ms
-[00:00:05.999] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.156] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:06.156] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:06.156] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763739652970}
-[00:01:31.966] Server  LOG      ✓ Compiled in 31ms
-[00:01:41.566] Server  LOG      ✓ Compiled in 19ms
-[00:01:56.702] Server  LOG      ✓ Compiled in 23ms
-[00:03:37.618] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:37.771] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:03:37.771] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:03:37.771] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763739864588}
-[00:05:10.412] Server  LOG      ✓ Compiled in 31ms
-[00:05:19.731] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:19.888] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:19.888] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:05:19.888] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763739966730}
-[00:08:02.712] Server  LOG      ✓ Compiled in 132ms
-[00:10:59.733] Server  LOG      ✓ Compiled in 35ms
-[00:24:36.605] Server  LOG      ✓ Compiled in 73ms
-[00:25:23.095] Server  LOG      ✓ Compiled in 32ms
-[00:25:55.676] Server  LOG      ✓ Compiled in 23ms
-[00:26:50.374] Server  LOG      ✓ Compiled in 65ms
-[00:27:03.283] Server  LOG      ✓ Compiled in 24ms
-[00:27:19.934] Server  LOG      ✓ Compiled in 21ms
-[00:27:20.038] Browser ERROR   ./components/calendar/inspector.tsx:32:10
-Ecmascript file had an error
-  30 |
-  31 |   const [isAddingMenu, setIsAddingMenu] = React.useState(false)
-> 32 |   const [isAddingMenu, setIsAddingMenu] = React.useState(false)
-     |          ^^^^^^^^^^^^
-  33 |
-  34 |   const handleCreateSession = (canteenId: string, mealId: string) => {
-  35 |     // Check if exists
-
-the name `isAddingMenu` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:27:20.038] Browser ERROR   ./components/calendar/inspector.tsx:32:24
-Ecmascript file had an error
-  30 |
-  31 |   const [isAddingMenu, setIsAddingMenu] = React.useState(false)
-> 32 |   const [isAddingMenu, setIsAddingMenu] = React.useState(false)
-     |                        ^^^^^^^^^^^^^^^
-  33 |
-  34 |   const handleCreateSession = (canteenId: string, mealId: string) => {
-  35 |     // Check if exists
-
-the name `setIsAddingMenu` is defined multiple times
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:30:11.104] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.105] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.107] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.109] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.111] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.112] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.113] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.114] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.131] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.132] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.136] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.139] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.141] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.142] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.145] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.145] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.149] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.150] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.151] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.155] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.156] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.157] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.158] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.158] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.161] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.162] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.163] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.165] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.167] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.169] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.170] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.171] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.174] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.175] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.176] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.176] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.177] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.177] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.177] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.178] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.180] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.180] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.182] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.183] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:16:1
-Module not found: Can't resolve '@/components/calendar/add-menu-form'
-  14 | import { cn } from "@/lib/utils"
-  15 | import { SessionCard } from "@/components/calendar/session-card"
-> 16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  17 |
-  18 | interface InspectorProps {
-  19 |   currentDate: Date
-
-Import map: aliased to relative './components/calendar/add-menu-form' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.184] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.184] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.185] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.186] Server  ERROR    ⨯ ./components/calendar/inspector.tsx:15:1
-Module not found: Can't resolve '@/components/calendar/session-card'
-  13 | import { CANTEENS, MEAL_TYPES, type MenuSession } from "@/types/menu"
-  14 | import { cn } from "@/lib/utils"
-> 15 | import { SessionCard } from "@/components/calendar/session-card"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  16 | import { AddMenuForm } from "@/components/calendar/add-menu-form"
-  17 |
-  18 | interface InspectorProps {
-
-Import map: aliased to relative './components/calendar/session-card' inside of [project]/
-
-
-Import traces:
-  Client Component Browser:
-    ./components/calendar/inspector.tsx [Client Component Browser]
-    ./components/calendar/calendar-shell.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/calendar/inspector.tsx [Client Component SSR]
-    ./components/calendar/calendar-shell.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:30:11.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:11.681] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:30:11.682] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:30:11.682] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763741458477}
-[00:30:17.811] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:17.968] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:30:17.968] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:30:17.968] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763741464764}
-[00:40:17.326] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:40:17.498] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:40:17.498] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:40:17.498] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763742064288}
-[00:42:46.375] Server  LOG      ✓ Compiled in 74ms
-[00:43:30.007] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:30.167] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:43:30.167] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:43:30.167] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763742256959}
-[00:49:35.573] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:49:35.725] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:49:35.725] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:49:35.725] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763742622518}
-[00:56:08.009] Server  LOG      ✓ Compiled in 57ms
-[00:56:51.106] Server  LOG      ✓ Compiled in 72ms
-[00:58:45.965] Server  LOG      ✓ Compiled in 76ms
-[00:59:21.745] Server  LOG      ✓ Compiled in 118ms
-[01:00:09.935] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:00:10.096] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:00:10.097] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:00:10.097] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763743256850}
-[01:06:25.752] Server  LOG      ✓ Compiled in 99ms
-[01:07:06.294] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:07:06.455] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:07:06.455] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[01:07:06.455] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763743673208}
+[00:00:02.610] Server  WARN     ⚠ Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: 5.0.2
+[00:00:02.936] Server  LOG      ✓ Ready in 1931ms
+[00:00:26.030] Server  LOG      ○ Compiling / ...
+[00:00:42.558] Server  WARN     ⚠ Cross origin request detected from 107.174.55.77 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:42.730] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:43.400] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Page} serverProvidedParams={{...}}>
+        <Page params={Promise} searchParams={Promise}>
+          <div className="flex h-scr...">
+            <div className="flex-1 fle...">
+              <CalendarShell currentDate={Date} onDateChange={function bound dispatchSetState}>
+                <div className="flex h-scr...">
+                  <div className="flex flex-...">
+                    <header>
+                    <header>
+                    <main className="flex-1 ove...">
+                      <MonthView currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                        <div className="flex flex-...">
+                          <div>
+                          <div className={"flex-1 g..."}>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+                                  >
++                                   21
+                                  ...
+                                ...
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+                                  >
++                                   22
+                                  ...
+                                ...
+                            ...
+                    ...
+                  <div className="hidden lg:...">
+                    <Inspector currentDate={Date}>
+                      <div className="flex flex-...">
+                        <div className="p-4 border...">
+                          <div className="flex items...">
+                            <div>
+                              <h2>
+                              <p className="text-sm text-muted-foreground">
++                               2025年11月22日 星期六
+-                               2025年11月21日 星期五
+                              ...
+                          ...
+                        ...
+    ...
+
+[00:00:43.904] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:43.904] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:43.904] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:43.904] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://107.174.55.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://107.174.55.77:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763785900818}
+[00:00:43.904] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://107.174.55.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://107.174.55.77:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763785900818}
+[00:07:20.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:20.742] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Page} serverProvidedParams={{...}}>
+        <Page params={Promise} searchParams={Promise}>
+          <div className="flex h-scr...">
+            <div className="flex-1 fle...">
+              <CalendarShell currentDate={Date} onDateChange={function bound dispatchSetState}>
+                <div className="flex h-scr...">
+                  <div className="flex flex-...">
+                    <header>
+                    <header>
+                    <main className="flex-1 ove...">
+                      <MonthView currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                        <div className="flex flex-...">
+                          <div>
+                          <div className={"flex-1 g..."}>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+                                  >
++                                   21
+                                  ...
+                                ...
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+                                  >
++                                   22
+                                  ...
+                                ...
+                            ...
+                    ...
+                  <div className="hidden lg:...">
+                    <Inspector currentDate={Date}>
+                      <div className="flex flex-...">
+                        <div className="p-4 border...">
+                          <div className="flex items...">
+                            <div>
+                              <h2>
+                              <p className="text-sm text-muted-foreground">
++                               2025年11月22日 星期六
+-                               2025年11月21日 星期五
+                              ...
+                          ...
+                        ...
+    ...
+
+[00:07:21.086] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:21.086] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:21.086] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:21.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786297945}
+[00:07:21.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786297946}
+[00:07:46.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:46.944] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Page} serverProvidedParams={{...}}>
+        <Page params={Promise} searchParams={Promise}>
+          <div className="flex h-scr...">
+            <div className="flex-1 fle...">
+              <CalendarShell currentDate={Date} onDateChange={function bound dispatchSetState}>
+                <div className="flex h-scr...">
+                  <div className="flex flex-...">
+                    <header>
+                    <header>
+                    <main className="flex-1 ove...">
+                      <MonthView currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                        <div className="flex flex-...">
+                          <div>
+                          <div className={"flex-1 g..."}>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+                                  >
++                                   21
+                                  ...
+                                ...
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+                                  >
++                                   22
+                                  ...
+                                ...
+                            ...
+                    ...
+                  <div className="hidden lg:...">
+                    <Inspector currentDate={Date}>
+                      <div className="flex flex-...">
+                        <div className="p-4 border...">
+                          <div className="flex items...">
+                            <div>
+                              <h2>
+                              <p className="text-sm text-muted-foreground">
++                               2025年11月22日 星期六
+-                               2025年11月21日 星期五
+                              ...
+                          ...
+                        ...
+    ...
+
+[00:07:46.944] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:46.944] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:46.944] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:46.944] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786323314}
+[00:07:46.944] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786323314}
+[00:08:02.373] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:02.373] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Page} serverProvidedParams={{...}}>
+        <Page params={Promise} searchParams={Promise}>
+          <div className="flex h-scr...">
+            <div className="flex-1 fle...">
+              <CalendarShell currentDate={Date} onDateChange={function bound dispatchSetState}>
+                <div className="flex h-scr...">
+                  <div className="flex flex-...">
+                    <header>
+                    <header>
+                    <main className="flex-1 ove...">
+                      <MonthView currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                        <div className="flex flex-...">
+                          <div>
+                          <div className={"flex-1 g..."}>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell>
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+                                  >
++                                   21
+                                  ...
+                                ...
+                            <DayCell day={Date} currentDate={Date} onDateSelect={function bound dispatchSetState}>
+                              <div
+                                onClick={function onClick}
++                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+-                               className="relative border-b border-r p-1 transition-colors cursor-pointer hover:bg-mu..."
+                              >
+                                <div className="flex flex-...">
+                                  <span
++                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medi..."
+-                                   className="flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium"
+                                  >
++                                   22
+                                  ...
+                                ...
+                            ...
+                    ...
+                  <div className="hidden lg:...">
+                    <Inspector currentDate={Date}>
+                      <div className="flex flex-...">
+                        <div className="p-4 border...">
+                          <div className="flex items...">
+                            <div>
+                              <h2>
+                              <p className="text-sm text-muted-foreground">
++                               2025年11月22日 星期六
+-                               2025年11月21日 星期五
+                              ...
+                          ...
+                        ...
+    ...
+
+[00:08:02.373] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:02.373] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:08:02.373] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:08:02.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786338735}
+[00:08:02.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763786338735}
