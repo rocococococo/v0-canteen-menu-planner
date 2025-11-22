@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 排期 (Menu/Session)
+model Menu {
+  id        String   @id @default(uuid())
+  date      String   // YYYY-MM-DD
+  canteenId String
+  mealId    String
+  status    String   @default("draft") // draft, submitted
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dishes Dish[]
+
+  @@unique([date, canteenId, mealId])
+}
+
+// 菜品 (Dish)
+model Dish {
+  id              String   @id @default(uuid())
+  name            String
+  plannedServings Int?
+  chefName        String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  menuId String
+  menu   Menu   @relation(fields: [menuId], references: [id], onDelete: Cascade)
+
+  ingredients DishIngredient[]
+}
+
+// 原料 (Ingredient) - Master Data
+model Ingredient {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  unit      String   // Default unit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dishIngredients    DishIngredient[]
+  purchaseOrderItems PurchaseOrderItem[]
+}
+
+// 供应商 (Supplier)
+model Supplier {
+  id        String   @id @default(uuid())
+  name      String
+  contact   String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  purchaseOrders PurchaseOrder[]
+}
+
+// 采购单 (PurchaseOrder)
+model PurchaseOrder {
+  id         String   @id @default(uuid())
+  date       String   // Procurement Date (usually the day before consumption)
+  targetDate String   // The menu date this order is for
+  status     String   @default("draft") // draft, confirmed, completed
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  supplierId String
+  supplier   Supplier @relation(fields: [supplierId], references: [id])
+
+  items PurchaseOrderItem[]
+}
+
+// 采购单明细 (PurchaseOrderItem)
+model PurchaseOrderItem {
+  id        String   @id @default(uuid())
+  quantity  Float
+  unit      String
+  remark    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  purchaseOrderId String
+  purchaseOrder   PurchaseOrder @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
+
+  ingredientId String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+}
+
+// 配方 (DishIngredient) - Relation Table
+model DishIngredient {
+  id        String   @id @default(uuid())
+  quantity  Float
+  unit      String   // Usage unit (can be different from default)
+  remark    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  dishId String
+  dish   Dish   @relation(fields: [dishId], references: [id], onDelete: Cascade)
+
+  ingredientId String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+}
