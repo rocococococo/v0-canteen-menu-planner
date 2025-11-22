@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { getLunarDateInfo } from "@/lib/lunar"
 import type { AggregatedIngredient } from "@/lib/procurement"
-import { aggregateIngredientsByDate, getPurchaseOrdersByTargetDate, getAssignedIngredientIds } from "@/lib/procurement"
+import { getProcurementData, type ProcurementData } from "@/app/actions/procurement"
+import { toast } from "sonner"
 
 interface ProcurementInspectorProps {
     currentDate: Date
@@ -21,33 +22,37 @@ export function ProcurementInspector({ currentDate }: ProcurementInspectorProps)
     const lunarInfo = getLunarDateInfo(currentDate)
 
     const [aggregatedIngredients, setAggregatedIngredients] = React.useState<AggregatedIngredient[]>([])
-    const [purchaseOrders, setPurchaseOrders] = React.useState<any[]>([])
+    const [purchaseOrders, setPurchaseOrders] = React.useState<ProcurementData["purchaseOrders"]>([])
     const [assignedIds, setAssignedIds] = React.useState<Set<string>>(new Set())
     const [selectedIngredientIds, setSelectedIngredientIds] = React.useState<Set<string>>(new Set())
     const [isLoading, setIsLoading] = React.useState(false)
 
-    // Load data
+    // Load data through server action to keep Prisma on the server.
     const loadData = React.useCallback(async () => {
         setIsLoading(true)
         try {
-            const [aggregated, orders, assigned] = await Promise.all([
-                aggregateIngredientsByDate(dateKey),
-                getPurchaseOrdersByTargetDate(dateKey),
-                getAssignedIngredientIds(dateKey),
-            ])
-            setAggregatedIngredients(aggregated)
-            setPurchaseOrders(orders)
-            setAssignedIds(assigned)
-            setSelectedIngredientIds(new Set())
+            const result = await getProcurementData(dateKey)
+
+            if (result.success) {
+                setAggregatedIngredients(result.data.aggregatedIngredients)
+                setPurchaseOrders(result.data.purchaseOrders)
+                setAssignedIds(new Set(result.data.assignedIds))
+                setSelectedIngredientIds(new Set())
+                return
+            }
+
+            console.error("Failed to load procurement data:", result.error)
+            toast.error("加载采购数据失败: " + (result.error || "未知错误"))
         } catch (error) {
             console.error("Failed to load procurement data:", error)
+            toast.error("加载采购数据失败，请稍后重试")
         } finally {
             setIsLoading(false)
         }
     }, [dateKey])
 
     React.useEffect(() => {
-        loadData()
+        void loadData()
     }, [loadData])
 
     // Filter out already assigned ingredients

@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils"
 import { DishItem } from "@/components/dish-item"
 import { getLunarDateInfo } from "@/lib/lunar"
 import type { AppMode } from "@/lib/store"
+import { getMenusByDate, saveMenu, deleteMenu } from "@/app/actions/menu"
 import { ProcurementInspector } from "@/components/calendar/procurement-inspector"
 
 interface InspectorProps {
@@ -39,15 +40,53 @@ function MenuInspector({ currentDate }: { currentDate: Date }) {
   const dateKey = format(currentDate, "yyyy-MM-dd")
   const lunarInfo = getLunarDateInfo(currentDate)
 
-  // This avoids returning a new array reference from the selector itself on every call
+  // Store actions
   const allSessions = useMenuStore((state) => state.sessions)
   const sessions = React.useMemo(() => allSessions.filter((s) => s.date === dateKey), [allSessions, dateKey])
-
   const addSession = useMenuStore((state) => state.addSession)
+  const setSessions = useMenuStore((state) => state.setSessions)
 
   const [isAddingMenu, setIsAddingMenu] = React.useState(false)
   const [selectedCanteen, setSelectedCanteen] = React.useState("")
   const [selectedMeal, setSelectedMeal] = React.useState("")
+  const [isLoading, setIsLoading] = React.useState(false)
+
+  // Load menus from database on mount and date change
+  React.useEffect(() => {
+    const loadMenus = async () => {
+      setIsLoading(true)
+      const result = await getMenusByDate(dateKey)
+      if (result.success && result.data) {
+        // Convert DB format to store format
+        const loadedSessions: MenuSession[] = result.data.map((menu: any) => ({
+          id: menu.id,
+          date: menu.date,
+          canteenId: menu.canteenId,
+          mealId: menu.mealId,
+          status: menu.status,
+          dishes: menu.dishes.map((dish: any) => ({
+            id: dish.id,
+            name: dish.name,
+            plannedServings: dish.plannedServings?.toString() || "",
+            chefName: dish.chefName || "",
+            ingredients: dish.ingredients.map((di: any) => ({
+              id: di.id,
+              name: di.ingredient.name,
+              quantity: di.quantity.toString(),
+              unit: di.unit,
+              remark: di.remark || "",
+            })),
+          })),
+        }))
+
+        // Update store with loaded data
+        setSessions(loadedSessions)
+      }
+      setIsLoading(false)
+    }
+
+    loadMenus()
+  }, [dateKey, setSessions])
 
   const handleCreateSession = () => {
     if (!selectedCanteen || !selectedMeal) return
@@ -67,7 +106,28 @@ function MenuInspector({ currentDate }: { currentDate: Date }) {
       status: "draft",
       dishes: [],
     }
-    addSession(newSession)
+
+    // Save to database immediately
+    const saveNewMenu = async () => {
+      const menuData = {
+        date: newSession.date,
+        canteenId: newSession.canteenId,
+        mealId: newSession.mealId,
+        status: newSession.status,
+        dishes: []
+      }
+
+      const result = await saveMenu(menuData)
+      if (result.success) {
+        addSession(newSession)
+        toast.success("菜单已创建")
+      } else {
+        toast.error("创建失败: " + result.error)
+      }
+    }
+
+    saveNewMenu()
+
     setIsAddingMenu(false)
     setSelectedCanteen("")
     setSelectedMeal("")
@@ -120,7 +180,12 @@ function MenuInspector({ currentDate }: { currentDate: Date }) {
               <p className="text-xs mt-1">点击下方按钮开始排菜</p>
             </div>
           ) : (
-            sessions.map((session) => <SessionCard key={session.id} session={session} />)
+            sessions.map((session) => (
+              <SessionCard
+                key={session.id ?? `${session.date}-${session.canteenId}-${session.mealId}`}
+                session={session}
+              />
+            ))
           )}
 
           {/* Inline Add Menu Form */}
@@ -201,9 +266,10 @@ function MenuInspector({ currentDate }: { currentDate: Date }) {
 }
 
 function SessionCard({ session }: { session: MenuSession }) {
-  const [isOpen, setIsOpen] = React.useState(session.status !== "submitted")
+  const [isOpen, setIsOpen] = React.useState(() => session.status !== "submitted")
   const [isConfirmingDelete, setIsConfirmingDelete] = React.useState(false)
   const [isConfirmingSubmit, setIsConfirmingSubmit] = React.useState(false)
+  const prevDishCount = React.useRef(session.dishes.length)
 
   const updateSession = useMenuStore((state) => state.updateSession)
   const removeSession = useMenuStore((state) => state.removeSession)
@@ -222,6 +288,16 @@ function SessionCard({ session }: { session: MenuSession }) {
     }
   }, [session.status])
 
+  // Keep the card open when new dishes are added in draft mode
+  React.useEffect(() => {
+    const hasMoreDishes = session.dishes.length > prevDishCount.current
+    prevDishCount.current = session.dishes.length
+
+    if (hasMoreDishes && session.status !== "submitted") {
+      setIsOpen(true)
+    }
+  }, [session.dishes.length, session.status])
+
   // Reset confirmation states when menu closes or interactions happen
   React.useEffect(() => {
     if (!isOpen) {
@@ -230,10 +306,17 @@ function SessionCard({ session }: { session: MenuSession }) {
     }
   }, [isOpen])
 
-  const handleDeleteSession = (e: React.MouseEvent) => {
+  const handleDeleteSession = async (e: React.MouseEvent) => {
     e.stopPropagation()
     if (isConfirmingDelete) {
-      removeSession(session.id)
+      // Delete from database
+      const result = await deleteMenu(session.date, session.canteenId, session.mealId)
+      if (result.success) {
+        removeSession(session.id)
+        toast.success("菜单已删除")
+      } else {
+        toast.error("删除失败: " + result.error)
+      }
     } else {
       setIsConfirmingDelete(true)
       // Auto-reset after 3 seconds
@@ -243,22 +326,54 @@ function SessionCard({ session }: { session: MenuSession }) {
 
   const handleAddDish = () => {
     if (isLocked) return
+    const newDishId =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Math.random().toString(36).substr(2, 9)
     const newDish: Dish = {
-      id: Math.random().toString(36).substr(2, 9),
+      id: newDishId,
       name: "",
       plannedServings: "",
       chefName: "当前厨师",
       ingredients: [],
     }
+    setIsOpen(true)
     addDish(session.id, newDish)
   }
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.stopPropagation()
     if (isConfirmingSubmit) {
-      updateSession(session.id, { status: "submitted" })
-      toast.success("菜单已提交")
-      setIsConfirmingSubmit(false)
+      // Prepare data for database
+      const menuData = {
+        date: session.date,
+        canteenId: session.canteenId,
+        mealId: session.mealId,
+        status: "submitted",
+        dishes: session.dishes.map(dish => ({
+          name: dish.name,
+          plannedServings: parseInt(dish.plannedServings) || null,
+          chefName: dish.chefName,
+          ingredients: dish.ingredients.map(ing => ({
+            ingredientId: ing.id,
+            ingredientName: ing.name,
+            quantity: parseFloat(ing.quantity) || 0,
+            unit: ing.unit,
+            remark: ing.remark
+          }))
+        }))
+      }
+
+      // Save to database
+      const result = await saveMenu(menuData)
+
+      if (result.success) {
+        updateSession(session.id, { status: "submitted" })
+        toast.success("菜单已提交并保存")
+        setIsConfirmingSubmit(false)
+      } else {
+        toast.error("提交失败: " + result.error)
+      }
     } else {
       setIsConfirmingSubmit(true)
       // Auto-reset after 3 seconds

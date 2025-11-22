@@ -9,3 +9,9 @@ yarn-error.log*
 pnpm-debug.log*
 
 /lib/generated/prisma
+
+# SQLite
+*.db
+*.db-journal
+*.db-wal
+*.log

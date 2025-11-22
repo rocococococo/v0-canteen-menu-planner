@@ -10,6 +10,7 @@ interface MenuState {
 
   // Menu sessions
   sessions: MenuSession[]
+  setSessions: (sessions: MenuSession[]) => void
   addSession: (session: MenuSession) => void
   updateSession: (sessionId: string, updates: Partial<MenuSession>) => void
   removeSession: (sessionId: string) => void
@@ -28,6 +29,7 @@ export const useMenuStore = create<MenuState>((set, get) => ({
 
   // Menu sessions
   sessions: [],
+  setSessions: (sessions) => set({ sessions }),
   addSession: (session) => set((state) => ({ sessions: [...state.sessions, session] })),
   updateSession: (id, updates) =>
     set((state) => ({

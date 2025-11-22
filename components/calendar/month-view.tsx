@@ -15,6 +15,8 @@ import { useMenuStore } from "@/lib/store"
 import React from "react"
 import { CANTEENS, MEAL_TYPES } from "@/types/menu"
 import { getLunarDateInfo } from "@/lib/lunar"
+import { getMenusByDateRange } from "@/app/actions/menu"
+import { MenuSession } from "@/types/menu"
 
 interface MonthViewProps {
   currentDate: Date
@@ -33,6 +35,47 @@ export function MonthView({ currentDate, onDateSelect }: MonthViewProps) {
   })
 
   const weekDays = ["一", "二", "三", "四", "五", "六", "日"]
+
+  const setSessions = useMenuStore((state) => state.setSessions)
+  const sessions = useMenuStore((state) => state.sessions)
+
+  // Load menus for the visible range
+  React.useEffect(() => {
+    const loadMonthData = async () => {
+      const startStr = format(startDate, "yyyy-MM-dd")
+      const endStr = format(endDate, "yyyy-MM-dd")
+
+      const result = await getMenusByDateRange(startStr, endStr)
+      if (result.success && result.data) {
+        // Convert DB format to store format
+        const loadedSessions: MenuSession[] = result.data.map((menu: any) => ({
+          id: menu.id,
+          date: menu.date,
+          canteenId: menu.canteenId,
+          mealId: menu.mealId,
+          status: menu.status,
+          dishes: menu.dishes.map((dish: any) => ({
+            id: dish.id,
+            name: dish.name,
+            plannedServings: dish.plannedServings?.toString() || "",
+            chefName: dish.chefName || "",
+            ingredients: dish.ingredients.map((di: any) => ({
+              id: di.id,
+              name: di.ingredient.name,
+              quantity: di.quantity.toString(),
+              unit: di.unit,
+              remark: di.remark || "",
+            })),
+          })),
+        }))
+
+        // Update store with loaded data
+        setSessions(loadedSessions)
+      }
+    }
+
+    loadMonthData()
+  }, [currentDate, startDate, endDate, setSessions]) // Re-run when month changes
 
   return (
     <div className="flex flex-col h-full bg-background">

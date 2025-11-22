@@ -59,8 +59,8 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
             <Label className="shrink-0 text-muted-foreground text-xs w-8 text-right">菜品</Label>
             <Input
               autoFocus
-              value={name}
-              onChange={(e) => onUpdate({ name: e.target.value })}
+              defaultValue={name}
+              onBlur={(e) => onUpdate({ name: e.target.value })}
               placeholder="请输入菜品名称"
               className="font-medium h-8 text-sm"
             />
@@ -72,8 +72,8 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
             <div className="relative flex-1">
               <Input
                 type="number"
-                value={servings}
-                onChange={(e) => handleServingsChange(e.target.value)}
+                defaultValue={servings}
+                onBlur={(e) => handleServingsChange(e.target.value)}
                 className="h-8 pr-6 text-sm"
                 placeholder="0"
               />
@@ -106,8 +106,8 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
                     <Input
                       autoFocus
                       placeholder="原料名称"
-                      value={ing.name}
-                      onChange={(e) => updateIngredient(idx, "name", e.target.value)}
+                      defaultValue={ing.name}
+                      onBlur={(e) => updateIngredient(idx, "name", e.target.value)}
                       className="h-8 text-sm bg-background"
                     />
                   </div>
@@ -129,8 +129,8 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
                     <Input
                       type="number"
                       placeholder="0"
-                      value={ing.quantity}
-                      onChange={(e) => updateIngredient(idx, "quantity", e.target.value)}
+                      defaultValue={ing.quantity}
+                      onBlur={(e) => updateIngredient(idx, "quantity", e.target.value)}
                       className="h-8 text-sm bg-background"
                     />
                   </div>
@@ -162,8 +162,8 @@ export function DishItem({ id, name, servings, ingredients, onUpdate, onDelete }
                   <Label className="shrink-0 text-muted-foreground text-xs w-8 text-right">备注</Label>
                   <Input
                     placeholder="选填"
-                    value={ing.remark || ""}
-                    onChange={(e) => updateIngredient(idx, "remark", e.target.value)}
+                    defaultValue={ing.remark || ""}
+                    onBlur={(e) => updateIngredient(idx, "remark", e.target.value)}
                     className="h-8 text-sm bg-background"
                   />
                 </div>
