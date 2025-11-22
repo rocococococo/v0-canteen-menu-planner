@@ -16,12 +16,26 @@ import { CANTEENS, MEAL_TYPES, type MenuSession, type Dish } from "@/types/menu"
 import { cn } from "@/lib/utils"
 import { DishItem } from "@/components/dish-item"
 import { getLunarDateInfo } from "@/lib/lunar"
+import type { AppMode } from "@/lib/store"
+import { ProcurementInspector } from "@/components/calendar/procurement-inspector"
 
 interface InspectorProps {
   currentDate: Date
+  appMode: AppMode
 }
 
-export function Inspector({ currentDate }: InspectorProps) {
+export function Inspector({ currentDate, appMode }: InspectorProps) {
+  // Route based on app mode
+  if (appMode === "procurement") {
+    return <ProcurementInspector currentDate={currentDate} />
+  }
+
+  // Default: Menu Planning mode
+  return <MenuInspector currentDate={currentDate} />
+}
+
+// Renamed original Inspector to MenuInspector
+function MenuInspector({ currentDate }: { currentDate: Date }) {
   const dateKey = format(currentDate, "yyyy-MM-dd")
   const lunarInfo = getLunarDateInfo(currentDate)
 

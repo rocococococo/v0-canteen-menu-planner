@@ -1,7 +1,14 @@
 import { create } from "zustand"
 import type { MenuSession, Dish } from "@/types/menu"
 
+export type AppMode = "planning" | "procurement"
+
 interface MenuState {
+  // App-wide mode
+  appMode: AppMode
+  setAppMode: (mode: AppMode) => void
+
+  // Menu sessions
   sessions: MenuSession[]
   addSession: (session: MenuSession) => void
   updateSession: (sessionId: string, updates: Partial<MenuSession>) => void
@@ -15,6 +22,11 @@ interface MenuState {
 
 // Simple mock store for prototype
 export const useMenuStore = create<MenuState>((set, get) => ({
+  // App mode state
+  appMode: "planning",
+  setAppMode: (mode) => set({ appMode: mode }),
+
+  // Menu sessions
   sessions: [],
   addSession: (session) => set((state) => ({ sessions: [...state.sessions, session] })),
   updateSession: (id, updates) =>

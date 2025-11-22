@@ -1,13 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { ChevronLeft, ChevronRight, Search, List } from "lucide-react"
+import { ChevronLeft, ChevronRight, Search, List, Calendar, ShoppingCart } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { MonthView } from "@/components/calendar/month-view"
 import { WeekView } from "@/components/calendar/week-view"
 import { DayView } from "@/components/calendar/day-view"
 import { YearView } from "@/components/calendar/year-view"
 import { Inspector } from "@/components/calendar/inspector"
+import { useMenuStore } from "@/lib/store"
 
 type ViewMode = "day" | "week" | "month" | "year"
 
@@ -19,6 +20,10 @@ interface CalendarShellProps {
 export function CalendarShell({ currentDate, onDateChange }: CalendarShellProps) {
   const [view, setView] = React.useState<ViewMode>("month")
   const [isSearchOpen, setIsSearchOpen] = React.useState(false)
+
+  // App mode state from store
+  const appMode = useMenuStore((state) => state.appMode)
+  const setAppMode = useMenuStore((state) => state.setAppMode)
 
   const handlePrev = () => {
     const newDate = new Date(currentDate)
@@ -50,9 +55,38 @@ export function CalendarShell({ currentDate, onDateChange }: CalendarShellProps)
 
   return (
     <div className="flex h-screen w-full flex-col bg-white text-[#1d1d1f] md:flex-row overflow-hidden font-sans">
-      <div className="flex flex-[2] flex-col min-w-0 bg-white border-gray-200">
+      <div className={cn(
+        "flex flex-col min-w-0 bg-white border-gray-200 transition-all duration-300",
+        appMode === "procurement" ? "flex-1" : "flex-[2]"
+      )}>
         <header className="hidden md:flex items-center justify-between px-4 py-3 border-b h-[52px]">
           <div className="flex items-center gap-4">
+            {/* Mode Switcher */}
+            <div className="flex bg-[#e5e5e5] p-0.5 rounded-lg">
+              <button
+                onClick={() => setAppMode("planning")}
+                className={cn(
+                  "px-3 py-1.5 text-sm font-medium rounded-md transition-all flex items-center gap-1.5",
+                  appMode === "planning" ? "bg-white shadow-sm text-black" : "text-gray-500 hover:text-black"
+                )}
+              >
+                <Calendar className="w-4 h-4" />
+                排菜
+              </button>
+              <button
+                onClick={() => setAppMode("procurement")}
+                className={cn(
+                  "px-3 py-1.5 text-sm font-medium rounded-md transition-all flex items-center gap-1.5",
+                  appMode === "procurement" ? "bg-white shadow-sm text-black" : "text-gray-500 hover:text-black"
+                )}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                采购
+              </button>
+            </div>
+
+            <div className="w-px h-6 bg-gray-300" />
+
             <h1 className="text-xl font-semibold min-w-[140px]">{headerDate}</h1>
             <div className="flex items-center gap-1">
               <button onClick={handlePrev} className="p-1 hover:bg-gray-100 rounded-md text-gray-500 transition-colors">
@@ -156,8 +190,11 @@ export function CalendarShell({ currentDate, onDateChange }: CalendarShellProps)
         </div>
       </div>
 
-      <div className="hidden lg:block flex-1 bg-white flex-shrink-0 overflow-y-auto border-l border-gray-200">
-        <Inspector currentDate={currentDate} />
+      <div className={cn(
+        "hidden lg:block bg-white flex-shrink-0 overflow-y-auto border-l border-gray-200 transition-all duration-300",
+        appMode === "procurement" ? "flex-[2]" : "flex-1"
+      )}>
+        <Inspector currentDate={currentDate} appMode={appMode} />
       </div>
     </div>
   )
